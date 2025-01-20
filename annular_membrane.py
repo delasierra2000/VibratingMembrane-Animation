@@ -8,7 +8,6 @@ import matplotlib.pyplot as  plt
 from matplotlib.animation import FFMpegWriter
 import os
 from time import time
-from datetime import datetime
 from PIL import Image
 
 
@@ -49,7 +48,6 @@ def f(x):
     return sci.jv(0,x)*sci.yv(0,2*x)-sci.yv(0,x)*sci.jv(0,2*x)
 
 
-#Evaluation of the n-eigenfunction
 def n_eigen_function(eigen_values,n,x):
     return sci.jv(0,eigen_values[n]*x)-(sci.jv(0,eigen_values[n])/sci.yv(0,eigen_values[n]))*sci.yv(0,eigen_values[n]*x)
 
@@ -109,16 +107,13 @@ metadata=dict(tittle='Movie',artist='Fran')
 writer=FFMpegWriter(fps=30,metadata=metadata)
 
 
-
-#Añado un contador de tiempo
 start = time()
 
-#Si no existe la carpeta animaciones, la crea.
+
 if not os.path.exists("./animaciones"):
     os.makedirs('animaciones')
 
 with writer.saving(fig,"./animaciones/membrane.mp4",250):
-    #Creo un bucle en el que en cada ciclo se actualiza la fecha y la posición del sol.
     times=np.linspace(0,s,s*fps)
     i=0
    
@@ -132,7 +127,7 @@ with writer.saving(fig,"./animaciones/membrane.mp4",250):
         temporal.remove()
 
 
-#Saco por la ventana el tiempo de ejecución.
+
 print(time() - start)
 
 
