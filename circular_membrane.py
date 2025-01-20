@@ -8,8 +8,6 @@ import matplotlib.pyplot as  plt
 from matplotlib.animation import FFMpegWriter
 import os
 from time import time
-from datetime import datetime
-from mpl_toolkits.mplot3d import Axes3D
 from PIL import Image
 
 
@@ -85,26 +83,26 @@ arg=np.arange(0,2*np.pi,0.01)
 r=np.arange(0,1,0.05)
 A,R=np.meshgrid(arg,r)
 
-#Establezco los segundos que queremos que dure la animación y los frames por segundo:
+
 s=40
 fps=30
 
-#Añado la ruta de ffmpeg.exe, le ponemos nombre y creador al video, y establecemos los fps.
+
 plt.rcParams['animation.ffmpeg_path'] = 'D:\\Fran\\python\\Astronomía\\ffmpeg-2024-11-28-git-bc991ca048-full_build\\bin\\ffmpeg.exe'
 metadata=dict(tittle='Movie',artist='Fran')
 writer=FFMpegWriter(fps=30,metadata=metadata)
 
 
 
-#Añado un contador de tiempo
+
 start = time()
 
-#Si no existe la carpeta animaciones, la crea.
+
 if not os.path.exists("./animaciones"):
     os.makedirs('animaciones')
 
 with writer.saving(fig,"./animaciones/membrane2.mp4",250):
-    #Creo un bucle en el que en cada ciclo se actualiza la fecha y la posición del sol.
+
     times=np.linspace(0,s,s*fps)
     i=0
    
@@ -118,7 +116,7 @@ with writer.saving(fig,"./animaciones/membrane2.mp4",250):
         temporal.remove()
 
 
-#Saco por la ventana el tiempo de ejecución.
+
 print(time() - start)
 
 
