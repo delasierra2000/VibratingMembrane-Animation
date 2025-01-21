@@ -88,7 +88,7 @@ s=40
 fps=30
 
 
-plt.rcParams['animation.ffmpeg_path'] = 'D:\\Fran\\python\\Astronomía\\ffmpeg-2024-11-28-git-bc991ca048-full_build\\bin\\ffmpeg.exe'
+plt.rcParams['animation.ffmpeg_path'] = 'Your ffmpeg.exe directory goes here'
 metadata=dict(tittle='Movie',artist='Fran')
 writer=FFMpegWriter(fps=30,metadata=metadata)
 
